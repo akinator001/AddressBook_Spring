@@ -1,15 +1,37 @@
 package com.cg.addressbook.model;
 
-import com.cg.addressbook.dto.AddressBookDTO;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class PersonData {
+import com.cg.addressbook.dto.AddressBookDTO;
+@Entity
+@Table(name = "addressbook")
+public class AddressBookData {
+	@Id
+	@Column(name="first_name")
 	private String firstName;
+
+	@Column(name="last_name")
 	private String lastName;
+
+	@Column(name="address")
 	private String address;
+
+	@Column(name="city")
 	private String city;
+
+	@Column(name="state")
 	private String state;
+
+	@Column(name="zip")
 	private String zip;
+
+	@Column(name="phone")
 	private String phoneNumber;
+
+	@Column(name="email")
 	private String email;
 	public String getFirstName() {
 		return firstName;
@@ -60,7 +82,7 @@ public class PersonData {
 		this.email = email;
 	}
 
-	public PersonData(String firstName,String lastName,String address,String city,String state,String zip,String phoneNumber,String email) {
+	public AddressBookData(String firstName,String lastName,String address,String city,String state,String zip,String phoneNumber,String email) {
 		this.firstName =firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -70,11 +92,11 @@ public class PersonData {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
-	public PersonData() {
+	public AddressBookData() {
 
 	}
 	
-	public PersonData(AddressBookDTO addressBookDTO) {
+	public AddressBookData(AddressBookDTO addressBookDTO) {
 		this.firstName = addressBookDTO.getFirstName();
 		this.lastName = addressBookDTO.getLastName();
 		this.address = addressBookDTO.getAddress();
