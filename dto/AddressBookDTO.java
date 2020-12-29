@@ -1,7 +1,6 @@
 package com.cg.addressbook.dto;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 
 import lombok.Data;
 
@@ -9,45 +8,29 @@ import lombok.Data;
 public class AddressBookDTO {
 	
 	@NotEmpty(message="first name should not be empty")
-	@Pattern(regexp="^[A-Z]{1}[a-zA-Z]{2,}$",message="Invalid first name")
-	private String firstName;
-	
-	@NotEmpty(message="last name should not be empty")
-	@Pattern(regexp="^[A-Z]{1}[a-zA-Z]{2,}$",message="Invalid last name")
-	private String lastName;
+	private String fullName;
 	
 	private String address;
 	
-	@Pattern(regexp="^[A-Z][a-z]{2,}$",message="Invalid city")
 	private String city;
 
-	@Pattern(regexp="^[A-Z][a-z]{2,}$",message="Invalid state")
 	private String state;
 
-	@Pattern(regexp="^[1-9]{1}[0-9]{5}$",message="Invalid zipcode")
 	private String zip;
 	
-	@Pattern(regexp="^[6-9]{1}[0-9]{9}",message="Phone number should be 10 digits")
 	private String phoneNumber;
 	
-	@Pattern(regexp="^([a][b][c])[.]([a-zA-Z]+)[@]([b][l][.][c][o])[.]([a-zA-Z]{2})$",message="Invalid email")
-	private String email;
-	
-	public AddressBookDTO(String firstName,String lastName,String address,String city,String state,String zip,String phoneNumber,String email) {
-		this.firstName =firstName;
-		this.lastName = lastName;
+	public AddressBookDTO(String fullName,String address,String city,String state,String zip,String phoneNumber) {
+		this.fullName =fullName;
 		this.address = address;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
 		this.phoneNumber = phoneNumber;
-		this.email = email;
 	}
 	public AddressBookDTO() {
 
 	}
 
-	public String toString() {
-		return "first name: "+ this.firstName+", last name = "+this.lastName+", address = "+this.address+", city ="+this.city+", state = "+this.state+", zip = "+this.zip+", phone number = "+this.phoneNumber+", email = "+this.email;
-	}
+	
 }
